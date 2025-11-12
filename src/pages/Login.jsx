@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { FaEye } from "react-icons/fa";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 import { RiGoogleFill } from "react-icons/ri";
 import toast from "react-hot-toast";
 
@@ -82,9 +82,9 @@ const Login = () => {
         </button>
         <div className="flex gap-2 justify-center items-center">
           <p>Already have account?</p>
-          <NavLink className="text-primary" to="/registration">
+          <Link className="text-primary" to="/registration">
             Register
-          </NavLink>
+          </Link>
         </div>
         <button
           onClick={handleGoogleLogin}

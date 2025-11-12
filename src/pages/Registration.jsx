@@ -3,7 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { FaEye } from "react-icons/fa";
 import { RiGoogleFill } from "react-icons/ri";
-import { NavLink } from "react-router";
+import { Link } from "react-router";
 
 const Registration = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -123,9 +123,9 @@ const Registration = () => {
         </button>
         <div className="flex gap-2 justify-center items-center">
           <p>Already have account?</p>
-          <NavLink className="text-blue-500" to="/login">
+          <Link className="text-blue-500" to="/login">
             Login
-          </NavLink>
+          </Link>
         </div>
         <button
           onClick={handleGoogleLogin}

@@ -1,8 +1,7 @@
 import React, { use } from "react";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
-import { RiProfileFill } from "react-icons/ri";
 import { ImProfile } from "react-icons/im";
 
 const Navbar = () => {
@@ -59,7 +58,7 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl text-primary">Movie Master Pro</a>
+        <a className="btn btn-ghost text-xs text-primary">Movie Master Pro</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-primary font-bold">
@@ -69,9 +68,9 @@ const Navbar = () => {
       <div className="navbar-end">
         {user ? (
           <div className="flex items-center gap-2">
-            <NavLink onClick={handleLogout} className="btn-primary">
+            <Link onClick={handleLogout} className="btn-primary w-20">
               Logout
-            </NavLink>
+            </Link>
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -88,7 +87,7 @@ const Navbar = () => {
               >
                 {user.photoURL ? (
                   <li className="flex justify-center items-center">
-                    <img className="w-10 h-10 inline" src={user.photoURL} />
+                    <img className="w-30 h-30 inline" src={user.photoURL} />
                   </li>
                 ) : (
                   ""
@@ -101,12 +100,12 @@ const Navbar = () => {
           </div>
         ) : (
           <div className="flex items-center gap-2">
-            <NavLink className="btn-primary w-20" to="/login">
+            <Link className="btn-primary w-20" to="/login">
               Login
-            </NavLink>
-            <NavLink className="btn-primary w-20" to="/registration">
+            </Link>
+            <Link className="btn-primary w-20" to="/registration">
               Register
-            </NavLink>
+            </Link>
           </div>
         )}
       </div>
