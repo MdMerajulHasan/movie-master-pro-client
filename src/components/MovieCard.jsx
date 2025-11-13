@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { BiStar } from "react-icons/bi";
 import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router";
 import "aos/dist/aos.css";
@@ -8,7 +7,7 @@ import Aos from "aos";
 const MovieCard = ({ movies }) => {
   // animation
   useEffect(() => {
-    Aos.init({ duration: 1000, once: false });
+    Aos.init({ duration: 1000, once: true });
   }, []);
   console.log(movies);
   return (

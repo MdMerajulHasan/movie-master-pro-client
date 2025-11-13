@@ -7,6 +7,7 @@ const Home = () => {
   const movies = useLoaderData();
   const [users, setUsers] = useState(0);
   const [topMovies, setTopMovies] = useState([]);
+  const [recentMovies, setRecentMovies] = useState([]);
 
   // load users data from database
   useEffect(() => {
@@ -20,7 +21,13 @@ const Home = () => {
       .then((res) => res.json())
       .then((data) => setTopMovies(data));
   }, []);
-  console.log(users);
+  // load recent 6 movies
+  useEffect(() => {
+    fetch("http://localhost:3000/movies/recent")
+      .then((res) => res.json())
+      .then((data) => setRecentMovies(data));
+  }, []);
+
   return (
     <div className="mt-5 md:mt-10 mb-0">
       <CarouselSlider movies={movies}></CarouselSlider>
@@ -44,6 +51,12 @@ const Home = () => {
         Top Rated Movies
       </h2>
       <MovieCard movies={topMovies}></MovieCard>
+      {/* ------------------------------------------------------------------ */}
+      {/* Recently Added Movies section */}
+      <h2 className="mt-5 md:mt-10 mb-4 text-primary font-bold text-2xl text-center md:text-4xl lg:text-6xl">
+        Recently Added
+      </h2>
+      <MovieCard movies={recentMovies}></MovieCard>
       {/* ------------------------------------------------------------------ */}
     </div>
   );
