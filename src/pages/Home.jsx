@@ -2,6 +2,9 @@ import { useLoaderData } from "react-router";
 import CarouselSlider from "../components/CarouselSlider";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
+import { FaChrome, FaSafari } from "react-icons/fa";
+import { MdTabletAndroid } from "react-icons/md";
+import { IoLogoAndroid } from "react-icons/io";
 
 const Home = () => {
   const movies = useLoaderData();
@@ -37,11 +40,11 @@ const Home = () => {
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-11/12 mx-auto text-center">
         <div className="w-full bg-linear-to-br from-red-500 to-red-300 text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
-          <p className="underline">Total Movies</p>
+          <p className="underline mb-2">Total Movies</p>
           <p>{movies.length}</p>
         </div>
         <div className="w-full bg-linear-to-br from-red-500 to-red-300 text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
-          <p className="underline">Total Users</p>
+          <p className="underline mb-2">Total Users</p>
           <p>{users.length}</p>
         </div>
       </div>
@@ -117,6 +120,55 @@ const Home = () => {
         </div>
       </div>
       {/* ------------------------------------------------------------------------*/}
+      {/* about platform section */}
+      <h2 className="mt-5 md:mt-10 mb-1 md:mb-4 text-primary font-bold text-2xl text-center md:text-4xl lg:text-6xl">
+        About Platform
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-11/12 mx-auto text-center mb-5 md:mb-10">
+        <div className="w-full bg-linear-to-br from-red-500 to-red-300 text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          <p className="underline mb-2">Supported Platforms</p>
+          <ul className="w-1/2 mx-auto text-xs md:text-base">
+            <li className="flex justify-start gap-0.5 items-center">
+              <FaChrome />
+              Chrome
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <FaSafari />
+              Safari
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <MdTabletAndroid />
+              Mobile Android
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <IoLogoAndroid />
+              Android TV
+            </li>
+          </ul>
+        </div>
+        <div className="w-full bg-linear-to-br from-red-500 to-red-300 text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          <p className="underline mb-2">Features of Platforms</p>
+          <ul className="w-4/5 lg:w-[60%] mx-auto text-xs md:text-base">
+            <li className="flex justify-start gap-0.5 items-center">
+              <FaChrome />
+              Stream, Filter and download
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <FaSafari />
+              Stream, Filter and download
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <MdTabletAndroid />
+              Stream and download
+            </li>
+            <li className="flex justify-start gap-0.5 items-center">
+              <IoLogoAndroid />
+              Watch in 4K UHD
+            </li>
+          </ul>
+        </div>
+      </div>
+      {/* ------------------------------------------------------------------ */}
     </div>
   );
 };
