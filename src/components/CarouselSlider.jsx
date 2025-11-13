@@ -13,11 +13,11 @@ const CarouselSlider = ({ movies }) => {
         infiniteLoop={true}
         interval={3000}
         showStatus={false}
-        className="rounded-2xl md:h-[350px] lg:h-[600px]"
+        className="md:h-[350px] lg:h-[600px]"
       >
         {movies.map((movie, index) => (
           <div key={index} className="md:h-[350px] lg:h-[600px]">
-            <img className="" src={movie.posterUrl} />
+            <img className="rounded-lg" src={movie.posterUrl} />
             <p className="legend hidden md:flex justify-center">
               {movie.title}
             </p>
