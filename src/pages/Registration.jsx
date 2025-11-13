@@ -33,12 +33,22 @@ const Registration = () => {
         const currentUser = result.user;
         currentUser.displayName = name;
         currentUser.photoURL = photoURL;
+        const userToDB = {
+          name: currentUser.displayName,
+          email: currentUser.email,
+          photo: currentUser.photoURL,
+        };
         update({ displayName: name, photoURL: photoURL })
           .then()
           .catch((error) => {
             toast(error.message);
           });
         setUser(currentUser);
+        fetch("http://localhost:3000/users/add", {
+          method: "POST",
+          headers: { "content-type": "application/json" },
+          body: JSON.stringify(userToDB),
+        });
         e.target.reset();
       })
       .catch((error) => {

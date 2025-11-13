@@ -58,7 +58,9 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xs text-primary">Movie Master Pro</a>
+        <a className="btn btn-ghost font-bold text-xs md:text-xl lg:text-2xl text-primary">
+          Movie Master Pro
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 text-primary font-bold">

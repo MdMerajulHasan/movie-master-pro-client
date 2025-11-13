@@ -4,7 +4,7 @@ import React from "react";
 
 const CarouselSlider = ({ movies }) => {
   return (
-    <div className="w-3/5 md:w-[45%] mx-auto h-screen">
+    <div className="w-3/5 md:w-[45%] lg:w-[30%] mx-auto h-full">
       <Carousel
         showIndicators={false}
         showThumbs={false}
@@ -13,14 +13,11 @@ const CarouselSlider = ({ movies }) => {
         infiniteLoop={true}
         interval={3000}
         showStatus={false}
-        className="md:h-[350px] lg:h-[600px]"
+        className="md:h-[350px] lg:h-full"
       >
         {movies.map((movie, index) => (
-          <div key={index} className="md:h-[350px] lg:h-[600px]">
-            <img className="rounded-lg" src={movie.posterUrl} />
-            <p className="legend hidden md:flex justify-center">
-              {movie.title}
-            </p>
+          <div key={index} className="md:h-[350px] lg:h-full">
+            <img className="rounded-lg h-full" src={movie.posterUrl} />
           </div>
         ))}
       </Carousel>
