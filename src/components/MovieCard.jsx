@@ -3,6 +3,7 @@ import { BsStarFill } from "react-icons/bs";
 import { Link } from "react-router";
 import "aos/dist/aos.css";
 import Aos from "aos";
+import { GrCheckboxSelected } from "react-icons/gr";
 
 const MovieCard = ({ movies }) => {
   // animation
@@ -27,6 +28,13 @@ const MovieCard = ({ movies }) => {
             <p className="flex gap-0.5 items-center">
               {movie.rating}
               <BsStarFill></BsStarFill>
+            </p>
+          </div>
+          <div className="w-4/5 mx-auto flex justify-between text-sm md:text-base text-primary font-bold">
+            <p>{movie.genre}</p>
+            <p className="flex gap-0.5 items-center">
+              {movie.releaseYear}
+              <GrCheckboxSelected />
             </p>
           </div>
           <div className="w-4/5  mx-auto font-bold">

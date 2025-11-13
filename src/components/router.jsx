@@ -19,7 +19,11 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/movies"),
         Component: Home,
       },
-      { path: "/movies", element: <AllMovies></AllMovies> },
+      {
+        path: "/movies",
+        loader: () => fetch("http://localhost:3000/movies"),
+        element: <AllMovies></AllMovies>,
+      },
       { path: "/movies/add", element: <AddMovie></AddMovie> },
       { path: "/movies/:id", element: <MovieDetails></MovieDetails> },
       { path: "/movies/update/:id", element: <UpdateMovie></UpdateMovie> },
