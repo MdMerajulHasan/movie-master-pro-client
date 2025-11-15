@@ -9,6 +9,7 @@ import MyCollection from "../pages/MyCollection";
 import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import Error404 from "../pages/Error404";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -26,7 +27,14 @@ const router = createBrowserRouter([
         loader: () => fetch("http://localhost:3000/movies"),
         element: <AllMovies></AllMovies>,
       },
-      { path: "/movies/add", element: <AddMovie></AddMovie> },
+      {
+        path: "/movies/add",
+        element: (
+          <PrivateRoute>
+            <AddMovie></AddMovie>
+          </PrivateRoute>
+        ),
+      },
       {
         path: "/movies/:id",
         loader: ({ params }) =>
@@ -43,7 +51,11 @@ const router = createBrowserRouter([
         path: "/movies/my-collection/:email",
         loader: ({ params }) =>
           fetch(`http://localhost:3000/movies/my-collection/${params.email}`),
-        element: <MyCollection></MyCollection>,
+        element: (
+          <PrivateRoute>
+            <MyCollection></MyCollection>
+          </PrivateRoute>
+        ),
       },
       { path: "/login", element: <Login></Login> },
       { path: "/registration", element: <Registration></Registration> },
