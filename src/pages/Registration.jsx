@@ -44,22 +44,18 @@ const Registration = () => {
           email: currentUser.email,
           photo: currentUser.photoURL,
         };
-        update({ displayName: name, photoURL: photoURL })
-          .then((result) => {
-            console.log(result);
-          })
-          .catch((error) => {
-            setLoading(false);
-            toast(error.message);
-          });
+        update({ displayName: name, photoURL: photoURL }).catch((error) => {
+          setLoading(false);
+          toast(error.message);
+        });
         setUser(currentUser);
         fetch("http://localhost:3000/users/add", {
           method: "POST",
           headers: { "content-type": "application/json" },
           body: JSON.stringify(userToDB),
         })
-          .then((result) => {
-            console.log(result);
+          .then(() => {
+            toast("User added TO DB!");
           })
           .then((error) => {
             setLoading(false);

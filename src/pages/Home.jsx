@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router";
 import CarouselSlider from "../components/CarouselSlider";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import MovieCard from "../components/MovieCard";
 import { FaChrome, FaSafari } from "react-icons/fa";
 import { MdTabletAndroid } from "react-icons/md";
@@ -18,6 +18,9 @@ const Home = () => {
   const [recentMovies, setRecentMovies] = useState([]);
   const [pending, setPending] = useState(0);
   const loading = pending > 0;
+  const toastUsersLoaded = useRef(false);
+  const toastTopLoaded = useRef(false);
+  const toastRecentLoaded = useRef(false);
 
   // load users data from database
   useEffect(() => {
@@ -25,6 +28,10 @@ const Home = () => {
     fetch("http://localhost:3000/users")
       .then((res) => res.json())
       .then((data) => {
+        if (!toastUsersLoaded.current) {
+          toast("User Data Loaded!");
+        }
+        toastUsersLoaded.current = true;
         setUsers(data);
       })
       .catch((err) => {
@@ -40,6 +47,10 @@ const Home = () => {
     fetch("http://localhost:3000/movies/top-rated")
       .then((res) => res.json())
       .then((data) => {
+        if (!toastTopLoaded.current) {
+          toast("Top Rated Movies Loaded!");
+        }
+        toastTopLoaded.current = true;
         setTopMovies(data);
       })
       .catch((err) => {
@@ -55,6 +66,10 @@ const Home = () => {
     fetch("http://localhost:3000/movies/recent")
       .then((res) => res.json())
       .then((data) => {
+        if (!toastRecentLoaded.current) {
+          toast("Recent Movies Loaded!");
+        }
+        toastRecentLoaded.current = true;
         setRecentMovies(data);
       })
       .catch((err) => {

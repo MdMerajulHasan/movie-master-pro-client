@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import { use } from "react";
 import { BsStarFill } from "react-icons/bs";
 import { FaGripLinesVertical } from "react-icons/fa";
 import { Link, useLoaderData, useNavigate } from "react-router";
@@ -17,14 +17,17 @@ const MovieDetails = () => {
     fetch(`http://localhost:3000/movies/${id}`, {
       method: "DELETE",
     })
-      .then((result) => {
-        setLoading(false);
-        navigate("/");
-        console.log(result);
+      .then((result) => result.json())
+      .then((data) => {
+        if (data.deletedCount) {
+          setLoading(false);
+          toast("Movie Deleted Successfully!");
+          navigate(`/movies/my-collection/${user.email}`);
+        }
       })
       .catch((err) => {
         setLoading(false);
-        toast(err);
+        toast("Ops! Movie Not Deleted: " + err.message);
       });
   };
 

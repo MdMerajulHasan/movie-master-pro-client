@@ -30,15 +30,18 @@ const AddMovie = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(movie),
     })
-      .then((result) => {
-        console.log(result);
-        setLoading(false);
-        form.reset();
-        navigate(`/movies/my-collection/${user.email}`);
+      .then((result) => result.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast("Movie Added Successfully!");
+          setLoading(false);
+          form.reset();
+          navigate(`/movies/my-collection/${user.email}`);
+        }
       })
-      .catch((error) => {
+      .catch((err) => {
         setLoading(false);
-        toast(error);
+        toast("Ops! Movie Not Added: " + err.message);
       });
   };
   if (loading) {

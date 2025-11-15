@@ -32,14 +32,17 @@ const UpdateMovie = () => {
       headers: { "content-type": "application/json" },
       body: JSON.stringify(updatedMovie),
     })
-      .then((result) => {
-        setLoading(false);
-        console.log(result);
-        navigate(`/movies/my-collection/${user?.email}`);
+      .then((result) => result.json())
+      .then((data) => {
+        if (data.matchedCount) {
+          setLoading(false);
+          toast("Movie Updated Successfully!");
+          navigate(`/movies/my-collection/${user?.email}`);
+        }
       })
       .catch((error) => {
         setLoading(false);
-        toast(error);
+        toast("Ops! Movie Not Updated: " + error.message);
       });
   };
   if (loading) {
