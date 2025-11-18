@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Registration from "../pages/Registration";
 import Error404 from "../pages/Error404";
 import PrivateRoute from "./PrivateRoute";
+import WatchList from "../pages/WatchList";
 
 const router = createBrowserRouter([
   {
@@ -58,6 +59,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyCollection></MyCollection>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/watch-list/:email",
+        loader: ({ params }) =>
+          fetch(`http://localhost:3000/watch-list/${params.email}`),
+        element: (
+          <PrivateRoute>
+            <WatchList></WatchList>
           </PrivateRoute>
         ),
       },

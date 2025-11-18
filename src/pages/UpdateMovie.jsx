@@ -29,7 +29,10 @@ const UpdateMovie = () => {
     };
     fetch(`http://localhost:3000/movies/update/${movie._id}`, {
       method: "PATCH",
-      headers: { "content-type": "application/json" },
+      headers: {
+        "content-type": "application/json",
+        authorization: `Bearer ${user.accessToken}`,
+      },
       body: JSON.stringify(updatedMovie),
     })
       .then((result) => result.json())

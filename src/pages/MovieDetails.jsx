@@ -12,6 +12,28 @@ const MovieDetails = () => {
   const { _id } = movie;
   const { loading, setLoading, user } = use(AuthContext);
 
+  const handlePlay = () => {
+    const playedMovie = {
+      movie: movie.title,
+      poster: movie.posterUrl,
+      played: user.email,
+    };
+    fetch(`http://localhost:3000/movies/watch-list`, {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify(playedMovie),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.insertedId) {
+          toast("Movie added to watch list!");
+        }
+      })
+      .catch((error) => {
+        toast("Ops! Movie didn't added to watch list: " + error.message);
+      });
+  };
+
   const handleDelete = (id) => {
     setLoading(true);
     fetch(`http://localhost:3000/movies/${id}`, {
@@ -74,19 +96,42 @@ const MovieDetails = () => {
             </div>
             <p>Cast: {movie.cast}</p>
             <p>Added By: {movie.addedBy}</p>
-            {user?.email === movie?.addedBy && (
-              <div className="flex gap-5 items-center">
-                <Link to={`/movies/update/${movie._id}`}>
-                  <button className="btn btn-secondary w-20">Edit</button>
-                </Link>
-                <button
-                  onClick={() => handleDelete(_id)}
-                  className="btn btn-primary w-20"
-                >
-                  Delete
-                </button>
-              </div>
-            )}
+
+            <div className="flex gap-5 items-center mt-1">
+              {/* play button without user */}
+              {!user ? (
+                <button className="btn btn-secondary w-20">Play</button>
+              ) : (
+                ""
+              )}
+              {user ? (
+                <>
+                  {/* paly button with user and will add to watch list  */}
+                  <Link onClick={handlePlay}>
+                    <button className="btn btn-secondary w-20">Play</button>
+                  </Link>
+                  {/* to see the watch list go to a new page */}
+                  <Link to={`/watch-list/${user?.email}`}>
+                    <button className="btn btn-secondary w-20">Watched</button>
+                  </Link>
+                </>
+              ) : (
+                ""
+              )}
+              {user?.email === movie?.addedBy && (
+                <>
+                  <Link to={`/movies/update/${movie._id}`}>
+                    <button className="btn btn-secondary w-20">Edit</button>
+                  </Link>
+                  <button
+                    onClick={() => handleDelete(_id)}
+                    className="btn btn-primary w-20"
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
+            </div>
           </div>
         </div>
       </div>

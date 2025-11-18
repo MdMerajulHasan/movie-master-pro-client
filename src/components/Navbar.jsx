@@ -32,6 +32,9 @@ const Navbar = () => {
           <li>
             <NavLink to="/movies/add">Add Movie</NavLink>
           </li>
+          <li>
+            <NavLink to={`/watch-list/${user.email}`}>Watch List</NavLink>
+          </li>
         </>
       ) : (
         ""
