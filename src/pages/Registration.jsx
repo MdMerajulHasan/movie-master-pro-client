@@ -3,7 +3,7 @@ import { AuthContext } from "../contexts/AuthContext";
 import toast from "react-hot-toast";
 import { FaEye } from "react-icons/fa";
 import { RiGoogleFill } from "react-icons/ri";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import Loader from "../components/Loader";
 
 const Registration = () => {
@@ -11,6 +11,7 @@ const Registration = () => {
   const { loading, setLoading, update, setUser, register, googleLogin } =
     use(AuthContext);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // google login or signup
   const handleGoogleLogin = () => {
@@ -20,7 +21,7 @@ const Registration = () => {
         setLoading(false);
         const user = result.user;
         setUser(user);
-        navigate("/");
+        navigate(location?.state || "/");
         toast("Successfully Logged in user!");
       })
       .catch((error) => {
@@ -66,7 +67,7 @@ const Registration = () => {
           });
         setLoading(false);
         e.target.reset();
-        navigate("/");
+        navigate(location?.state || "/");
       })
       .catch((error) => {
         setLoading(false);
@@ -106,9 +107,7 @@ const Registration = () => {
             <label className="input validator w-full">
               <input type="url" name="photoURL" />
             </label>
-            <div className="validator-hint hidden">
-              Enter valid url link
-            </div>
+            <div className="validator-hint hidden">Enter valid url link</div>
           </fieldset>
           <fieldset className="fieldset">
             <legend className="fieldset-legend text-primary dark:text-white">
@@ -146,7 +145,7 @@ const Registration = () => {
           </button>
           <div className="flex gap-2 justify-center items-center">
             <p className="dark:text-white">Already have account?</p>
-            <Link className="text-blue-500" to="/login">
+            <Link state={location?.state} className="text-blue-500" to="/login">
               Login
             </Link>
           </div>

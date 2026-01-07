@@ -18,14 +18,19 @@ const Footer = () => {
             <li>
               <Link to="/movies">All Movies</Link>
             </li>
-            <li>
-              <Link to={`/movies/my-collection/${user?.email}`}>
-                My Collection
-              </Link>
-            </li>
-            <li>
-              <Link to="/movies/add">Add Movie</Link>
-            </li>
+            {user && (
+              <>
+                <li>
+                  <Link to="/movies/my-collection">My Collection</Link>
+                </li>
+                <li>
+                  <Link to="/movies/add">Add Movie</Link>
+                </li>
+                <li>
+                  <Link to={`/watch-list/${user.email}`}>Watch List</Link>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <div>

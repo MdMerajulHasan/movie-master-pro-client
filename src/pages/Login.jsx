@@ -1,7 +1,7 @@
 import React, { use, useState } from "react";
 import { AuthContext } from "../contexts/AuthContext";
 import { FaEye } from "react-icons/fa";
-import { Link, useNavigate } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import { RiGoogleFill } from "react-icons/ri";
 import toast from "react-hot-toast";
 import Loader from "../components/Loader";
@@ -10,6 +10,7 @@ const Login = () => {
   const { loading, setLoading, login, setUser, googleLogin } = use(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
 
   // login or signup with google
   const handleGoogleLogin = () => {
@@ -19,7 +20,7 @@ const Login = () => {
         setLoading(false);
         const currentUser = result.user;
         setUser(currentUser);
-        navigate("/");
+        navigate(location?.state || "/");
         toast("Successfully Logged in user!");
       })
       .catch((error) => {
@@ -40,7 +41,7 @@ const Login = () => {
         const currentUser = result.user;
         setUser(currentUser);
         e.target.reset();
-        navigate("/");
+        navigate(location?.state || "/");
         toast("Successfully Logged in user!");
       })
       .catch((error) => {
@@ -103,6 +104,7 @@ const Login = () => {
           <div className="flex gap-2 justify-center items-center">
             <p>Don't have account?</p>
             <Link
+              state={location?.state}
               className="text-primary dark:text-secondary"
               to="/registration"
             >

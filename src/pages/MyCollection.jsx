@@ -1,12 +1,22 @@
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import CollectionCard from "../components/CollectionCard";
-import { Link, useLoaderData } from "react-router";
+import { Link } from "react-router";
 import { AuthContext } from "../contexts/AuthContext";
 import Loader from "../components/Loader";
+import toast from "react-hot-toast";
 
 const MyCollection = () => {
-  const movies = useLoaderData();
+  const { user } = use(AuthContext);
+  const [movies, setMovies] = useState([]);
   const { loading } = use(AuthContext);
+  useEffect(() => {
+    fetch(
+      `https://movie-master-pro-api.vercel.app/movies/my-collection/${user?.email}`
+    )
+      .then((res) => res.json())
+      .then((data) => setMovies(data))
+      .catch((err) => toast(err.message));
+  }, [user]);
 
   if (loading) {
     return <Loader></Loader>;

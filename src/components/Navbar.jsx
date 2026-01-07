@@ -25,12 +25,10 @@ const Navbar = () => {
       {user ? (
         <>
           <li>
-            <NavLink to={`/movies/my-collection/${user?.email}`}>
-              My Collection
-            </NavLink>
+            <NavLink to="/movies/add">Add Movie</NavLink>
           </li>
           <li>
-            <NavLink to="/movies/add">Add Movie</NavLink>
+            <NavLink to="/movies/my-collection">My Collection</NavLink>
           </li>
           <li>
             <NavLink to={`/watch-list/${user.email}`}>Watch List</NavLink>
@@ -97,7 +95,10 @@ const Navbar = () => {
                 className="btn btn-ghost btn-circle avatar"
               >
                 <span>
-                  <ImProfile className="text-primary dark:text-white" size={40}></ImProfile>
+                  <ImProfile
+                    className="text-primary dark:text-white"
+                    size={40}
+                  ></ImProfile>
                 </span>
               </div>
               <ul
