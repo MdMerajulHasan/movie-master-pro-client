@@ -8,6 +8,7 @@ import { IoLogoAndroid } from "react-icons/io";
 import toast from "react-hot-toast";
 import Loader from "../components/Loader";
 import { ErrorBoundary } from "react-error-boundary";
+import { motion } from "framer-motion";
 const errorFallback = ({ error }) => {
   return <p>Something Went Wrong: {error.message}</p>;
 };
@@ -91,14 +92,26 @@ const Home = () => {
           Statistics
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-11/12 mx-auto text-center">
-          <div className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
             <p className="underline mb-2">Total Movies</p>
             <p>{movies.length}</p>
-          </div>
-          <div className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
             <p className="underline mb-2">Total Users</p>
             <p>{users.length}</p>
-          </div>
+          </motion.div>
         </div>
         {/* ------------------------------------------------------------------ */}
         {/* Top Rated Movies section */}
@@ -118,7 +131,13 @@ const Home = () => {
           Genre
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 w-11/12 mx-auto">
-          <div className="bg-base-200 dark:bg-slate-900 p-4 rounded-md">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-base-200 dark:bg-slate-900 p-4 rounded-md"
+          >
             <img
               className="w-[300px] h-[150px] mx-auto rounded-md"
               src="https://i.ibb.co.com/VcRKVyGh/action.webp"
@@ -130,8 +149,14 @@ const Home = () => {
             >
               Action
             </button>
-          </div>
-          <div className="bg-base-200 dark:bg-slate-900 p-4 rounded-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-base-200 dark:bg-slate-900 p-4 rounded-md"
+          >
             <img
               className="w-[300px] h-[150px] mx-auto rounded-md"
               src="https://i.ibb.co.com/Xf0fL8nL/drama.jpg"
@@ -143,8 +168,14 @@ const Home = () => {
             >
               Drama
             </button>
-          </div>
-          <div className="bg-base-200 dark:bg-slate-900 p-4 rounded-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-base-200 dark:bg-slate-900 p-4 rounded-md"
+          >
             <img
               className="w-[300px] h-[150px] mx-auto rounded-md"
               src="https://i.ibb.co.com/N2XfGz8Y/comedy.webp"
@@ -156,8 +187,14 @@ const Home = () => {
             >
               Comedy
             </button>
-          </div>
-          <div className="bg-base-200 dark:bg-slate-900 p-4 rounded-md">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="bg-base-200 dark:bg-slate-900 p-4 rounded-md"
+          >
             <img
               className="w-[300px] h-[150px] mx-auto rounded-md"
               src="https://i.ibb.co.com/Df5Nrv8S/sifi.jpg"
@@ -169,17 +206,67 @@ const Home = () => {
             >
               Si-fi
             </button>
-          </div>
+          </motion.div>
         </div>
         {/* ------------------------------------------------------------------------*/}
+        {/* about platform section */}
+        <h2 className="mt-5 md:mt-10 mb-1 md:mb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
+          Why Choose Movie Master Pro
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-11/12 mx-auto text-center pb-5 md:pb-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold lg:text-2xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
+            <p className="mb-2">Secure Authentication Using Firebase</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold lg:text-2xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
+            <p className="mb-2">Watch-list Feature</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold lg:text-2xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
+            <p className="mb-2">Add Movie Feature</p>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold lg:text-2xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
+            <p className="mb-2">Edit Added Movie Feature</p>
+          </motion.div>
+        </div>
+        {/* ------------------------------------------------------------------ */}
         {/* about platform section */}
         <h2 className="mt-5 md:mt-10 mb-1 md:mb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
           About Platform
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-11/12 mx-auto text-center pb-5 md:pb-10">
-          <div className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
             <p className="underline mb-2">Supported Platforms</p>
-            <ul className="w-1/2 md:w-4/5 lg:w-1/2 mx-auto text-xs md:text-base">              <li className="flex justify-start gap-0.5 items-center">
+            <ul className="w-1/2 md:w-4/5 lg:w-1/2 mx-auto text-xs md:text-base">
+              <li className="flex justify-start gap-0.5 items-center">
                 <FaChrome />
                 Chrome
               </li>
@@ -196,8 +283,14 @@ const Home = () => {
                 Android TV
               </li>
             </ul>
-          </div>
-          <div className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20">
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.5 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-xl py-12 md:py-15 lg:py-20"
+          >
             <p className="underline mb-2">Features of Platforms</p>
             <ul className="w-1/2 md:w-4/5 lg:w-1/2 mx-auto text-xs md:text-base">
               <li className="flex justify-start gap-0.5 items-center">
@@ -217,7 +310,7 @@ const Home = () => {
                 Watch in 4K UHD
               </li>
             </ul>
-          </div>
+          </motion.div>
         </div>
         {/* ------------------------------------------------------------------ */}
       </div>
