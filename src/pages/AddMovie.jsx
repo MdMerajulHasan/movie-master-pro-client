@@ -51,7 +51,7 @@ const AddMovie = () => {
     return <Loader></Loader>;
   }
   return (
-    <div className="flex pb-5 md:pb-10 w-4/5 md:w-1/2 mx-auto justify-center items-center text-primary">
+    <div className="flex pb-5 md:pb-10 w-4/5 md:w-1/2 mx-auto justify-center items-center text-primary dark:text-secondary">
       <form className="w-full" onSubmit={handleAdd}>
         <h2 className="mt-5 md:mt-10 mb-1 md:mb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
           Add A Movie
