@@ -390,7 +390,7 @@ const Home = () => {
         {/* contact us section */}
         <ContactUs></ContactUs>
         {/* ------------------------------------------------------------------ */}
-        {/*  us section */}
+        {/*  FAQ section */}
         <div className="pb-5 md:pb-10 text-primary dark:text-white">
           <h2 className="mt-5 md:mt-10 pb-1 md:pb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
             FAQ

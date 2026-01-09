@@ -5,6 +5,7 @@ import Loader from "../components/Loader";
 
 const WatchList = () => {
   const watchedMovies = useLoaderData();
+  console.log(watchedMovies);
   const { loading } = use(AuthContext);
   if (loading) {
     return <Loader></Loader>;

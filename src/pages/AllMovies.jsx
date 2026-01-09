@@ -14,7 +14,11 @@ const AllMovies = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`http://localhost:3000/movies?genre=${genre}`)
+
+    const url = genre
+      ? `http://localhost:3000/movies?genre=${genre}`
+      : `http://localhost:3000/movies`;
+    fetch(url)
       .then((res) => res.json())
       .then((data) => {
         setMoviesToShow(data);
