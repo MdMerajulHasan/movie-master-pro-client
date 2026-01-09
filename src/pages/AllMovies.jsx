@@ -95,7 +95,7 @@ const AllMovies = () => {
         All Movies
       </h2>
       <div className="mb-1 md:mb-4 w-11/12 mx-auto flex flex-col md:flex-row gap-2 md:gap-0 md:justify-between items-center">
-        <div className="flex gap-1 items-center w-11/12 md:w-auto">
+        <div className="flex gap-1 items-center w-full md:w-auto">
           <label className="input text-primary border-primary dark:border-secondary dark:text-secondary">
             <svg
               className="h-[1em] opacity-50"
@@ -121,7 +121,7 @@ const AllMovies = () => {
         </div>
         <select
           onChange={(e) => handleFilter(e.target.value)}
-          className="select w-11/12 md:w-auto border-primary dark:border-secondary text-primary dark:bg-slate-800 dark:text-white font-bold md:text-xs"
+          className="select w-full md:w-auto border-primary dark:border-secondary text-primary dark:bg-slate-800 dark:text-white font-bold md:text-xs"
         >
           <option value="">Sort By Rating</option>
           <option value="1">1-10</option>
