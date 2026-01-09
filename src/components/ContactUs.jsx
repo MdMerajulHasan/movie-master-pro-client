@@ -53,8 +53,8 @@ const ContactUs = () => {
               required
             ></textarea>
           </div>
-
-          <button className="w-full bg-linear-to-r from-[#3b82f6] to-[#93c5fd] text-white font-bold py-2 rounded-md">
+          
+          <button className="w-full bg-base-200 dark:bg-slate-950 text-primary dark:text-white font-bold py-2 rounded-md">
             Send Message
           </button>
         </form>

@@ -26,7 +26,6 @@ const router = createBrowserRouter([
       },
       {
         path: "/movies",
-        loader: () => fetch("https://movie-master-pro-api.vercel.app/movies"),
         element: <AllMovies></AllMovies>,
       },
       {

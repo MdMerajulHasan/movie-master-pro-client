@@ -1,8 +1,8 @@
-import { useLoaderData } from "react-router";
+import { Link, useLoaderData } from "react-router";
 import CarouselSlider from "../components/CarouselSlider";
 import { useEffect, useState } from "react";
 import MovieCard from "../components/MovieCard";
-import { FaChrome, FaSafari } from "react-icons/fa";
+import { FaAngleDown, FaChrome, FaSafari } from "react-icons/fa";
 import { MdTabletAndroid } from "react-icons/md";
 import { IoLogoAndroid } from "react-icons/io";
 import toast from "react-hot-toast";
@@ -145,12 +145,14 @@ const Home = () => {
               src="https://i.ibb.co.com/VcRKVyGh/action.webp"
               alt="genre pic action"
             />
-            <button
-              className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
-              style={{ width: "100%" }}
-            >
-              Action
-            </button>
+            <Link to="/movies?genre=Action">
+              <button
+                className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
+                style={{ width: "100%" }}
+              >
+                Action
+              </button>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -164,12 +166,14 @@ const Home = () => {
               src="https://i.ibb.co.com/Xf0fL8nL/drama.jpg"
               alt="genre pic drama"
             />
-            <button
-              className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
-              style={{ width: "100%" }}
-            >
-              Drama
-            </button>
+            <Link to="/movies?genre=Drama">
+              <button
+                className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
+                style={{ width: "100%" }}
+              >
+                Drama
+              </button>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -183,12 +187,14 @@ const Home = () => {
               src="https://i.ibb.co.com/N2XfGz8Y/comedy.webp"
               alt="genre pic comedy"
             />
-            <button
-              className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
-              style={{ width: "100%" }}
-            >
-              Comedy
-            </button>
+            <Link to="/movies?genre=Comedy">
+              <button
+                className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
+                style={{ width: "100%" }}
+              >
+                Comedy
+              </button>
+            </Link>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -202,12 +208,14 @@ const Home = () => {
               src="https://i.ibb.co.com/Df5Nrv8S/sifi.jpg"
               alt="genre pic si-fi"
             />
-            <button
-              className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
-              style={{ width: "100%" }}
-            >
-              Si-fi
-            </button>
+            <Link to="/movies?genre=Sci-Fi">
+              <button
+                className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full mt-1"
+                style={{ width: "100%" }}
+              >
+                Sci-fi
+              </button>
+            </Link>
           </motion.div>
         </div>
         {/* ------------------------------------------------------------------------*/}
@@ -381,6 +389,54 @@ const Home = () => {
         {/* ------------------------------------------------------------------ */}
         {/* contact us section */}
         <ContactUs></ContactUs>
+        {/* ------------------------------------------------------------------ */}
+        {/*  us section */}
+        <div className="pb-5 md:pb-10 text-primary dark:text-white">
+          <h2 className="mt-5 md:mt-10 pb-1 md:pb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
+            FAQ
+          </h2>
+          <div className="space-y-1">
+            <details
+              className="collapse bg-base-100 dark:bg-slate-900 border border-base-300"
+              name="my-accordion-det-1"
+              open
+            >
+              <summary className="collapse-title font-semibold flex justify-between">
+                What is Movie Master Pro?
+                <FaAngleDown />
+              </summary>
+              <div className="collapse-content text-sm">
+                Movie Master Pro is a MERN-based movie management web
+                application that allows users to add movies, manage personal
+                collections, create a watchlist, and explore detailed
+                information about each movie in one place.
+              </div>
+            </details>
+            <details
+              className="collapse bg-base-100 dark:bg-slate-900 border border-base-300"
+              name="my-accordion-det-1"
+            >
+              <summary className="collapse-title font-semibold flex justify-between">
+                Need an account to use Movie Master Pro? <FaAngleDown />
+              </summary>
+              <div className="collapse-content text-sm">
+                <p>Yes. You must be logged in to:</p>
+                <ol className="list-disc">
+                  <li className="ml-4">Add movies</li>
+                  <li className="ml-4">Access your personal collection</li>
+                  <li className="ml-4">Manage your watchlist</li>
+                  <li className="ml-4">Remove movies you’ve added</li>
+                </ol>
+                <p>This ensures your data remains private and secure.</p>
+              </div>
+            </details>
+          </div>
+          <Link to="/faq">
+            <button className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full py-2 mt-1">
+              More FAQ...
+            </button>
+          </Link>
+        </div>
         {/* ------------------------------------------------------------------ */}
       </div>
     </ErrorBoundary>

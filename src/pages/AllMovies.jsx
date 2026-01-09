@@ -1,13 +1,30 @@
-import React, { useState } from "react";
+import React, { use, useEffect, useState } from "react";
 import { useLoaderData } from "react-router";
 import MovieCard from "../components/MovieCard";
 import toast from "react-hot-toast";
+import { useSearchParams } from "react-router";
+import { AuthContext } from "../contexts/AuthContext";
+import Loader from "../components/Loader";
 
 const AllMovies = () => {
-  const allMovies = useLoaderData();
-  const [moviesToShow, setMoviesToShow] = useState(allMovies);
+  const { loading, setLoading } = use(AuthContext);
+  const [params] = useSearchParams();
+  const genre = params.get("genre");
+  const [moviesToShow, setMoviesToShow] = useState([]);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:3000/movies?genre=${genre}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMoviesToShow(data);
+        setLoading(false);
+      })
+      .catch((err) => toast(err.message));
+  }, [setLoading, genre]);
+
   const handleFilter = (rating) => {
-    fetch(`https://movie-master-pro-api.vercel.app/movies?min=${rating}`)
+    fetch(`http://localhost:3000/movies?min=${rating}&genre=${genre}`)
       .then((res) => res.json())
       .then((data) => {
         setMoviesToShow(data);
@@ -16,6 +33,9 @@ const AllMovies = () => {
       .catch((err) => toast("Movies did not filtered: " + err.message));
   };
 
+  if (loading) {
+    return <Loader></Loader>;
+  }
   return (
     <div className="py-5 md:py-10">
       <h2 className="mb-1 md:mb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
@@ -45,7 +65,7 @@ const AllMovies = () => {
             <MovieCard movies={moviesToShow}></MovieCard>
           ) : (
             <p className="text-center text-primary font-bold text-base md:text-xl lg:text-3xl">
-              No movies in this rating range!
+              No movies in this rating range or genre!
             </p>
           )}
         </div>

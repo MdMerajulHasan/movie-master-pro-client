@@ -37,11 +37,44 @@ const Footer = () => {
           </ul>
         </div>
         <div>
+          <h5 className="text-base">Contact Info</h5>
+          <ul className="space-y-1">
+            <li>
+              <Link to="mailto:merajuljim1971@gmail.com">
+                Email:merajuljim1971@gmail.com
+              </Link>
+            </li>
+            <li>
+              <Link to="mailto:merajuljim1971@gmail.com">
+                Phone: +8801796596995
+              </Link>
+            </li>
+            <li>
+              <Link to="mailto:merajuljim1971@gmail.com">
+                Location: Gabtoli, Dhaka, Bangladesh.
+              </Link>
+            </li>
+          </ul>
+        </div>
+        <div>
           <h5 className="text-base">Find Us On</h5>
           <div className="flex flex-col gap-1 md:flex-row md:gap-2 md:items-center">
-            <FaFacebook size={20}></FaFacebook>
-            <FaLinkedin size={20}></FaLinkedin>
-            <FaGithub size={20}></FaGithub>
+            <Link target="_blank" to="https://www.facebook.com/jim.merajul.1/">
+              <FaFacebook size={20}></FaFacebook>
+            </Link>
+            <Link
+              target="_blank"
+              to="https://www.linkedin.com/in/md-merajul-hasan-developer/"
+            >
+              <FaLinkedin size={20}></FaLinkedin>
+            </Link>
+            <Link>
+              <FaGithub
+                target="_blank"
+                to="https://github.com/MdMerajulHasan"
+                size={20}
+              ></FaGithub>
+            </Link>
           </div>
         </div>
       </div>
