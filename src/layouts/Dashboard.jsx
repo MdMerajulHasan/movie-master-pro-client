@@ -19,7 +19,7 @@ const Dashboard = () => {
       <li>
         <NavLink
           className="flex gap-1 items-center"
-          to={`/dashboard/${user.email}`}
+          to={`/dashboard`}
         >
           <BiHome></BiHome> <span className="hidden md:flex">Home</span>
         </NavLink>
