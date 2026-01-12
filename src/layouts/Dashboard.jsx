@@ -95,7 +95,7 @@ const Dashboard = () => {
                   className="menu text-xs text-primary dark:text-white menu-sm dropdown-content mt-3 Z-[1] p-2 shadow bg-base-100 dark:bg-slate-800 rounded-box w-52"
                 >
                   <Link
-                    to={`/dashboard/${user.email}/profile`}
+                    to={`/dashboard/profile`}
                     className="mx-auto w-full text-center"
                   >
                     <span className="btn btn-primary dark:btn-secondary w-full h-4 md:h-6 my-1">
@@ -103,7 +103,7 @@ const Dashboard = () => {
                     </span>
                   </Link>
                   <Link
-                    to={`/dashboard/${user.email}`}
+                    to={`/dashboard`}
                     className="mx-auto w-full text-center"
                   >
                     <span className="btn btn-primary dark:btn-secondary w-full h-4 md:h-6 my-1">

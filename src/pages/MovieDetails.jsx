@@ -31,7 +31,7 @@ const MovieDetails = () => {
         }
       })
       .catch((error) => {
-        toast("Ops! Movie didn't added to watch list: " + error.message);
+        toast("Ops! Movie can't added to watch list: " + error.message);
       });
   };
 
