@@ -6,12 +6,12 @@ import toast from "react-hot-toast";
 
 const WatchList = () => {
   const watchedMovies = useLoaderData();
-  const { loading, setLoading, user} = use(AuthContext);
-  const navigate = useNavigate()
+  const { loading, setLoading, user } = use(AuthContext);
+  const navigate = useNavigate();
 
   const handleRemove = (id) => {
     setLoading(true);
-    fetch(`http://localhost:3000/watched/${id}`, {
+    fetch(`https://movie-master-pro-api.vercel.app/watched/${id}`, {
       method: "DELETE",
     })
       .then((result) => result.json())

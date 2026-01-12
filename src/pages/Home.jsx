@@ -88,7 +88,7 @@ const Home = () => {
   return (
     <ErrorBoundary FallbackComponent={errorFallback}>
       <div className="pt-5 md:pt-10 mb-0">
-        <CarouselSlider movies={movies}></CarouselSlider>
+        <CarouselSlider movies={movies.result}></CarouselSlider>
         {/* statistics section */}
         <h2 className="pt-5 md:pt-10 mb-1 md:pb-4 text-primary dark:text-white font-bold text-2xl text-center md:text-4xl lg:text-6xl">
           Statistics

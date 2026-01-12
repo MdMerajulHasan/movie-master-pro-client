@@ -24,7 +24,7 @@ const AllMovies = () => {
     setLoading(true);
     if (rating) {
       fetch(
-        `http://localhost:3000/movies?min=${rating}&genre=${
+        `https://movie-master-pro-api.vercel.app/movies?min=${rating}&genre=${
           genre || ""
         }&limit=${Limit}&skip=${currentPage * Limit}`
       )
@@ -40,10 +40,10 @@ const AllMovies = () => {
         .catch((err) => toast("Movies did not filtered: " + err.message));
     } else {
       const url = genre
-        ? `http://localhost:3000/movies?genre=${genre}&limit=${Limit}&skip=${
+        ? `https://movie-master-pro-api.vercel.app/movies?genre=${genre}&limit=${Limit}&skip=${
             currentPage * Limit
           }&search=${searchText || ""}`
-        : `http://localhost:3000/movies?limit=${Limit}&skip=${
+        : `https://movie-master-pro-api.vercel.app/movies?limit=${Limit}&skip=${
             currentPage * Limit
           }&search=${searchText || ""}`;
 
@@ -62,7 +62,7 @@ const AllMovies = () => {
   const handleFilter = (rating) => {
     setLoading(true);
     fetch(
-      `http://localhost:3000/movies?min=${rating}&genre=${
+      `https://movie-master-pro-api.vercel.app/movies?min=${rating}&genre=${
         genre || ""
       }&limit=${Limit}&skip=${currentPage * Limit}`
     )
