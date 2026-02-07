@@ -102,7 +102,7 @@ const Home = () => {
             className="w-full bg-linear-to-br from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] text-white font-bold text-2xl md:text-3xl lg:text-4xl rounded-md py-12 md:py-15 lg:py-20"
           >
             <p className="underline mb-2">Total Movies</p>
-            <p>{movies.length}</p>
+            <p>{movies.result.length}</p>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
