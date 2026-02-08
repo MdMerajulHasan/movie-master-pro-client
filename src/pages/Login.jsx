@@ -50,6 +50,22 @@ const Login = () => {
       });
   };
 
+  const handleDemoLogin = () => {
+    setLoading(true);
+    login("merajuljim@gmail.com", "Jim123")
+      .then((result) => {
+        setLoading(false);
+        const currentUser = result.user;
+        setUser(currentUser);
+        navigate(location?.state || "/");
+        toast("Successfully Logged in user!");
+      })
+      .catch((error) => {
+        setLoading(false);
+        toast(error.message);
+      });
+  };
+
   if (loading) {
     return <Loader></Loader>;
   } else {
@@ -68,7 +84,6 @@ const Login = () => {
                 type="email"
                 name="email"
                 className="text-secondary"
-                defaultValue="merajuljim@gmail.com"
                 required
               />
             </label>
@@ -85,7 +100,6 @@ const Login = () => {
                 type={showPassword ? "text" : "password"}
                 name="password"
                 required
-                defaultValue="Jim123"
                 title="Give password to login"
               />
               <span
@@ -99,7 +113,7 @@ const Login = () => {
           <p className="flex justify-end">Forgot Password?</p>
           <button
             type="submit"
-            className="text-center mx-auto btn-secondary w-full my-1"
+            className="text-center mx-auto btn-secondary w-full my-1 py-2"
           >
             Login
           </button>
@@ -115,9 +129,15 @@ const Login = () => {
           </div>
           <button
             onClick={handleGoogleLogin}
-            className="btn-secondary my-2 flex items-center justify-center gap-2 w-full"
+            className="btn-secondary my-2 flex items-center justify-center gap-2 w-full py-2"
           >
             <RiGoogleFill></RiGoogleFill> Google Login
+          </button>
+          <button
+            onClick={handleDemoLogin}
+            className="btn-secondary my-2 flex items-center justify-center gap-2 w-full py-2"
+          >
+            Demo Login
           </button>
         </form>
       </div>

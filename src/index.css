@@ -15,7 +15,7 @@
 }
 
 .btn-primary {
-  @apply bg-gradient-to-r from-[#ef4444] dark:from-[#3b82f6] to-[#fca5a5] dark:to-[#93c5fd] text-white font-bold rounded-sm text-center py-1 border-none;
+  @apply bg-gradient-to-r from-[#ef4444] dark:from-[#3b82f6] to-[#fca5a5] dark:to-[#93c5fd] text-white font-bold rounded-sm text-center border-none;
 }
 .btn-secondary {
   @apply bg-gradient-to-r from-[#3b82f6]  to-[#93c5fd] text-white font-bold rounded-sm border-none;

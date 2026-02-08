@@ -48,7 +48,7 @@ const Navbar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn text-primary dark:text-white btn-ghost lg:hidden"
+            className="btn pl-0 pr-0 text-primary dark:text-white btn-ghost lg:hidden"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -74,7 +74,7 @@ const Navbar = () => {
         </div>
         <a
           href="/"
-          className="btn btn-ghost font-bold text-xs md:text-xl lg:text-2xl text-primary dark:text-white"
+          className="btn-ghost font-bold text-xs md:text-xl lg:text-2xl text-primary dark:text-white"
         >
           Movie Master Pro
         </a>

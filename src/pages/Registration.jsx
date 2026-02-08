@@ -139,7 +139,7 @@ const Registration = () => {
           </fieldset>
           <button
             type="submit"
-            className="text-center mx-auto btn-primary w-full"
+            className="text-center mx-auto btn-primary w-full my-1 py-2"
           >
             Register
           </button>
@@ -151,7 +151,7 @@ const Registration = () => {
           </div>
           <button
             onClick={handleGoogleLogin}
-            className="btn-primary my-2 flex items-center justify-center gap-2 w-full"
+            className="btn-primary my-2 flex items-center justify-center gap-2 w-full py-2"
           >
             <RiGoogleFill></RiGoogleFill> Google Login
           </button>

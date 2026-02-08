@@ -432,7 +432,7 @@ const Home = () => {
             </details>
           </div>
           <Link to="/faq">
-            <button className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full py-2 mt-1">
+            <button className="text-white font-bold bg-linear-to-r from-red-500 dark:from-[#3b82f6] to-red-300 dark:to-[#93c5fd] rounded-sm w-full py-2 mt-1 hover:cursor-pointer">
               More FAQ...
             </button>
           </Link>
